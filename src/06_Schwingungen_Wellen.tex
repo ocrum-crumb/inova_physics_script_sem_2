@@ -1,0 +1,580 @@
+\chapter{Schwingungen und Wellen}
+
+Schwingungen und Wellen sind zentrale Phänomene in der Physik, die eng miteinander 
+verknüpft sind und in vielen technischen Anwendungen eine entscheidende Rolle spielen. 
+
+Schwingungen beschreiben die periodische Bewegung eines Systems um eine 
+Gleichgewichtslage - wie das Pendel einer Uhr oder die Vibrationen einer Maschine. 
+Sie sind die Grundlage für das Verständnis von Wellen, die sich als räumliche 
+Ausbreitung von Schwingungen beschreiben lassen, ohne dass Material selbst wandert.
+
+\section{Schwingungen}
+
+\begin{minipage}{.68\textwidth}
+    Die Untersuchung von Schwingungen ist eine wichtige Aufgabe der Physik, da
+    Schwingungen an vielen technischen Vorgängen beteiligt sind. Sie treten als 
+    Vibrationen von Bauwerken und Maschinenfundamenten ebenso auf wie beim Einschwingen 
+    von Messgeräten und Regeleinrichtungen in der Automatisierungstechik. Schwingende Pendel, 
+    Unruhen und Schwingquarze sind Grundlage der meisten Zeitmessverfahren.
+
+    In diesem Abschnitt werden die Grundlagen von Schwingungen behandelt, 
+    um in einem späteren Schritt Wellen besser verstehen zu können. 
+\end{minipage}
+\hspace{.05\textwidth}
+\begin{minipage}{.35\textwidth}
+    \begin{figure}[H]   
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{pendel_bild.jpg} %.6 stands for 0.6 x textwidth
+        \caption{Klassisches Beispiel für eine Schwingung: Fadenpendel \cite{noauthor_vergleich_nodate}}
+        \label{fig:pendel}
+    \end{figure}
+\end{minipage}
+
+Abbildung \ref{tab:begriffeundbezeichnungen} zeigt Begriffe und Grössen, wobei Unterschiede zu den
+in der Technik üblichen Bezeichnungen nicht zu vermeiden sind.
+
+\begin{table}[H]
+    \centering
+    \caption{Begriffe und Bezeichnungen \cite{bartsch_dynamik_2023}}
+    \label{tab:begriffeundbezeichnungen}
+    \begin{figure}[H]    
+        \centering          %     left botm right top
+        \includegraphics[width=.7\textwidth]{begriffe_schwingungen.png} %.6 stands for 0.6 x textwidth
+    \end{figure}
+\end{table}
+
+\subsection{Freie, ungedämpfte Schwingung}
+
+Das Fadenpendel wie in Abbildung \ref{fig:pendel} dargestellt ist ein Beispiel 
+für die freie, ungedämpfte Schwingung (wenn der Widerstand vernachlässigt wird).
+
+Das Federpendel verhaltet sich ähnlich, die auftretende Bewegung folgt einer Sinusschwingung. 
+
+Wir wollen am typischen Beispiel des Masse-Feder-Schwingers die Bewegung eines
+Körpers beschreiben, der an einer Schraubenfeder hängt und freie ungedämpfte
+Schwingungen um seine Gleichgewichtslage ausführt. Der Körper lässt sich dabei
+als Punktmasse auffassen, die eine spezielle geradlinige, ungleichmässig beschleunigte 
+Bewegung ausführt \cite{zeitler_physik_2016}.
+
+\subsubsection{Kinematik der Sinusschwingung}
+
+In allgemeiner Form können Auslenkung $x$, 
+Geschwindigkeit $v$ und Beschleunigung $a$ wie folgt ausgedrückt werden:
+
+\begin{equbox}
+    \begin{align}
+        x(t) &= A \cdot \sin(\omega_0 \cdot t + \phi) \\
+        v(t) &= A \cdot \omega_0 \cdot \cos(\omega_0 \cdot t + \phi) \\
+        a(t) &= - A \cdot \omega_0^2 \cdot \sin(\omega_0 \cdot t + \phi)
+    \end{align}
+\end{equbox}
+
+Die Amplitude $A$ und die Phasenverschiebung $\phi$ sind aus den Anfangsbedingungen, d.h.
+Position und Geschwindigkeit bei $t = 0$ zu bestimmen:
+
+\begin{equbox}
+    \begin{align}
+        A &= \sqrt{x_0^2 + (\frac{v_0}{\omega_0})^2} \\
+        \phi &= \tan^{-1}(\frac{x_0 \cdot \omega_0}{v_0})
+    \end{align}
+\end{equbox}
+
+Beim Phasenwinkel ist auf die Mehrdeutigkeit der arctan-Funktion zu achten!
+
+Folgend die Umsetzung an einem Massenschwinger. 
+Die Auslenkung $y$ aus der Nulllage ist in Abhängigkeit von der Zeit
+in Bild \ref{fig:freie_ungedämpfte} a) dargestellt. Das y-t-Diagramm zeigt eine Sinuskurve.
+
+\begin{figure}[H]   
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.5\textwidth]{freie_ungedämpfte_schwingung.png} %.6 stands for 0.6 x textwidth
+    \caption{Freie ungedämpfte Sinusschwingung a) y-t-Diagramm; b) v-t-Diagramm; c) a-t-Diagramm \cite{zeitler_physik_2016}}
+    \label{fig:freie_ungedämpfte}
+\end{figure}
+
+Mit der Amplitude $y_{max}$ als maximaler Auslenkung und der Kreisfrequenz $\omega$ lässt
+sich die Auslenkung $y$ und die Geschwindigkeit $v$ in Abhängigkeit von der Zeit $t$ 
+ausdrücken:
+
+\begin{minipage}{.44\textwidth}
+    \begin{equation}
+        y = y_{max} \cdot \sin(\omega \cdot t)
+    \end{equation}
+\end{minipage}
+\hspace{.1\textwidth}
+\begin{minipage}{.44\textwidth}
+    \begin{equation}
+        v = \omega \cdot y_{max} \cdot \cos(\omega \cdot t)
+    \end{equation}
+\end{minipage}
+
+Die Beschleunigung a in Abhängigkeit von der Zeit $t$ ist:
+
+\begin{equation}
+    a = -\omega^2 \cdot y_{max} \cdot \sin(\omega \cdot t) = - \omega^2 \cdot y
+\end{equation}
+
+Es zeigt sich, dass bei einer Sinusschwingung die Beschleunigung $a$ 
+der Auslenkung $y$ proportional, ihr aber stets entgegengerichtet ist. 
+Der Proportionalitätsfaktor ist negativ und hat einen Betrag gleich 
+dem Quadrat der Kreisfrequenz \cite{zeitler_physik_2016}.
+
+\subsubsection{Dynamik der Sinusschwingung}
+
+Die kinematische Beschreibung der Sinusschwingung lässt die Frage offen, 
+wodurch Frequenz und Amplitude der Schwingung bestimmt werden. Diese Frage
+wird beantwortet, wenn wir die bei einer Schwingung auftretenden Kräfte und
+Energien untersuchen und dabei das Grundgesetz der Dynamik und den
+Energieerhaltungssatz anwenden \cite{zeitler_physik_2016}.
+
+Wir betrachten dazu wiederum als Beispiel einen Masse-Feder-Schwinger, bei dem
+ein Körper der Masse $m$ an einer Feder der Federkonstante $k$ hängt.
+
+\begin{minipage}{.68\textwidth}
+    Bei einer Auslenkung des Körpers um die Strecke $y$ aus seiner Gleichgewichtslage 
+    wirkt die Federkraft $F = - ky$ als rücktreibende Kraft, die der 
+    Auslenkung proportional und ihr entgegen gerichtet ist. (Beachten Sie, dass Sie hierbei
+    die Gewichtskraft des Körpers nicht zu berücksichtigen brauchen, da sie bei y = 0
+    durch eine gleich große Federkraft im Gleichgewicht gehalten wird. Die rück-
+    treibende Kraft ist nur die Federkraft, die zusätzlich bei einer Auslenkung aus
+    dieser Gleichgewichtslage auftritt.) Schwingungsfähige Systeme, für die ein 
+    lineares Kraftgesetz gilt, sind harmonische Oszillatoren.
+    Setzen wir die rücktreibende Kraft $- ky$ für $F$ in das Grundgesetz der Dynamik
+    $F = ma$ ein, so erhalten wir daraus die Beschleunigung:
+
+    \begin{equation}
+        a = - \frac{k}{m} \cdot y = - \omega^2 \cdot y
+    \end{equation}
+\end{minipage}
+\hspace{.05\textwidth}
+\begin{minipage}{.35\textwidth}
+    \begin{figure}[H]   
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{dynamik_sinsusschwingung.png} %.6 stands for 0.6 x textwidth
+        \caption{Masse-Feder-Schwinger \cite{zeitler_physik_2016}}
+        \label{fig:dynamiksinusschwingung}
+    \end{figure}
+\end{minipage}
+
+Daraus kann die Eigenkreisfrequenz hergeleitet werden:
+
+\begin{equbox}
+    \begin{equation}
+        \omega_0 = \sqrt{\frac{k}{m}}
+    \end{equation}
+\end{equbox}
+
+\begin{bspbox}
+    Wie gross sind Kreisfrequenz, Eigenfrequenz, Schwingungsdauer, 
+    Amplitude, Maximalgeschwindigkeit und
+    Maximalbeschleunigung der ungedämpften Schwingungen 
+    eines Masse-Feder-Schwingers mit der Federkonstante 
+    $25 Nm^{-1}$ und der Masse $100 g$? Die Schwingung
+    wurde mit einer Energie von $20 mJ$ angeregt.
+
+    Kreisfrequenz:
+
+    \begin{equation*}
+        \omega = \sqrt{\frac{k}{m}} = \sqrt{\frac{25Nm^{-1}}{0.1kg}} = 15.8s^{-1}
+    \end{equation*}
+
+    die Eigenfrequenz $f_0 = \frac{\omega}{2 \cdot \pi} = 2Hz$
+    Es finden also 2.5 Schwingungen in einer Sekunde mit einer 
+    Schwingungsdauer von $T = \frac{1}{f_0} = 0.4s$ statt. 
+    Die Amplitude errechnet sich zu:
+
+    \begin{equation*}
+        y_{max} = \sqrt{\frac{2 \cdot E_s}{k}} = \sqrt{\frac{2 \cdot 0.02J}{24Nm^{-1}}} = 0.041m = 4.1cm
+    \end{equation*}
+
+    Der Körper schwingt mit der
+    Maximalgeschwindigkeit 
+    $v_{max} = \omega \cdot y_{max} = 15.8 s^{-1} \cdot 0.041 m
+    = 0.65ms^{-1}$ durch die Nulllage und erfährt an den Umkehrpunkten 
+    eine Maximalbeschleunigung $a_{max} = \omega^2 \cdot y_{max} 
+    = (15.8s^{-1})^2 \cdot 0.041m = 10.2ms^{-2}$
+\end{bspbox}
+
+\subsubsection{Fadenpendel}
+
+\begin{minipage}{.58\textwidth}
+    Für das Fadenpendel gilt:
+
+    \begin{equbox}
+        \begin{equation}
+            \omega_0 = \sqrt{\frac{g}{l}}
+        \end{equation}
+    \end{equbox}
+    \vspace{10pt}
+
+    Die Bewegung wird durch den Winkel beschrieben:
+
+    \begin{equbox}
+        \begin{align}
+            \varphi(t) &= A \cdot \sin(\omega_0 \cdot t + \phi) \\
+            \omega(t) &= A \cdot \omega_0 \cdot \cos(\omega_0 \cdot t + \phi) \\
+            \alpha(t) &= - A \cdot \omega_0^2 \cdot \sin(\omega_0 \cdot t + \phi)
+        \end{align}
+    \end{equbox}
+
+\end{minipage}
+\hspace{.1\textwidth}
+\begin{minipage}{.3\textwidth}
+    \begin{figure}[H]    
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{fadenpendel_aufgabe.png}
+        \label{fig:61skript}
+    \end{figure}
+\end{minipage}
+
+\subsection{Freie gedämpfte Schwingungen}
+
+\begin{minipage}{.68\textwidth}
+    Eine freie ungedämpfte Schwingung schwingt unendlich lange, ihre Energie bleibt konstant.
+    Reale Systeme in der Technik schwingen gedämpft, d.h. die Amplituden des freien
+    gedämpften Schwingers nehmen ab, dem System wird Energie entzogen. Die Ursachen der
+    Dämpfung können sehr unterschiedlich sein und reichen von innerer Reibung im Material
+    über Lagerreibung (trocken oder geschmiert) bis zu viskoser Reibung und Luftwiderstand \cite{bartsch_dynamik_2023}.
+
+\end{minipage}
+\hspace{.05\textwidth}
+\begin{minipage}{.35\textwidth}
+    \begin{figure}[H]   
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{gedämpfte_schwingungen_gezeigt.png} %.6 stands for 0.6 x textwidth
+        \caption{Freie gedämpfte Schwingung \cite{bartsch_dynamik_2023}}
+        \label{fig:gedschwgeze}
+    \end{figure}
+\end{minipage}
+
+Mit dem hier verwendeten Ansatz der Geschwindigkeitsproportionalen, viskosen Dämpfung
+können viele Systeme in der Technik in guter Näherung beschrieben werden:
+
+\begin{equation}
+    F_D = d \cdot v = d \cdot \dot{x}
+\end{equation}
+
+Daraus kann die Abklingkonstante $\delta$ definiert werden:
+
+\begin{equbox}
+    \begin{equation}
+        \delta = \frac{d}{2 \cdot m}
+    \end{equation}
+\end{equbox}
+
+Oder mit dem Dämpfungsgrad $D$:
+
+\begin{equbox}
+    \begin{equation}
+        D = \frac{\delta}{\omega_0}
+    \end{equation}
+\end{equbox}
+
+Es sind die drei Fälle für eine gedämpfte Schwingung zu unterscheiden:
+
+\begin{minipage}{.47\textwidth}
+    \begin{infobox}
+        \begin{itemize}
+            \item Starke Dämpfung ($D > 1$)
+            \item Kritische Dämpfung ($D = 1$)
+            \item Schwache Dämpfung ($D < 1$)
+        \end{itemize}
+    \end{infobox}
+    \vspace{10pt}
+
+    Nachfolgend wird nur auf die schwache Dämpfung näher eingegangen, 
+    da sie der relevanteste Fall für Schwingungen darstellt.
+\end{minipage}
+\hspace{.05\textwidth}
+\begin{minipage}{.47\textwidth}
+    \begin{figure}[H]   
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{dämpfungsarten.png} %.6 stands for 0.6 x textwidth
+        \caption{Dämpfungsarten freie Schwingung \cite{noauthor_freie_nodate}}
+        \label{fig:dämpfungsarten}
+    \end{figure}
+\end{minipage}
+
+Das Verhältnis von zwei aufeinanderfolgenden Schwingungen ist ein Mass
+für die Dämpfung. Mit Hilfe der Hüllkurve kann dieses Verhältnis $q$ 
+berechnet werden (einhüllende, abnehmende Kurve abb. \ref{fig:gedschwgeze}).
+
+\begin{equbox}
+    \begin{align}
+        \Lambda &= ln(q) \\
+        D &= \frac{\Lambda}{\sqrt{4 \cdot \pi^2 + \Lambda^2}}
+    \end{align}
+\end{equbox}
+
+Die schwache Dämpfung beeinflusst die Amplitude $A$ über die Zeit sowie die Eigenfrequenz $\omega_d$:
+
+\begin{equbox}
+    \begin{align}
+        x(t) = A \cdot e^{- \delta \cdot t} \cdot \sin(\omega_d \cdot + \phi) \\
+        \omega_d = \sqrt{\omega_0^2 - \delta^2}
+    \end{align}
+\end{equbox}
+
+Mit Ausnahme spezieller Dämpfer (z.B. Fahrzeugachsen) betragen die Dämpfungsgrade $D$
+von Maschinen und Strukturen meist nur wenige Prozente. Die Eigenfrequenz $\omega_d$ der freien
+gedämpften Schwingung ist in diesem Fall nur unwesentlich kleiner als diejenige der
+ungedämpften Schwingung $\omega_0$. Für $D = 20\%$ ändert sich die Eigenfrequenz um ca. 2\%.
+
+Die Konstanten A und j sind wiederum aus den Anfangsbedingungen zu bestimmen.
+Mit der Auslenkung $x_0$ bzw. der Geschwindigkeit $v_0$ zur Zeit $t = 0$ folgt:
+
+\begin{equbox}
+    \begin{align}
+        A = \sqrt{x_0^2 + (\frac{v_0 + \delta \cdot x_0}{\omega_d})^2} \\
+        \phi = \tan^{-1}(\frac{x_0 \cdot \omega_d}{v_0 + \delta \cdot x_0})
+    \end{align}
+\end{equbox}
+
+\begin{bspbox}
+    \begin{minipage}{.55\textwidth}
+        Eine Masse $5 kg$ gleitet reibungsfrei auf einer schiefen Ebene. Die
+        vorgespannten Federn haben eine Steifigkeit $c = 2 kNm^{-1}$, die
+        Dämpfer $d = 25 Nsm^{-1}$. Die Masse wird zunächst 50 mm aus der
+        Gleichgewichtslage nach oben geschoben und anschliessend mit
+        einer Abwärtsgeschwindigkeit von $1.25 ms^{-1}$ losgelassen.
+        Zu bestimmen sind:
+
+        a) Die Periode der gedämpften Schwingung
+
+        b) Die Lage der Masse in Funktion der Zeit
+
+        Gravitation und Federvorspannung haben auf die Eigenfrequenz
+        keinen Einfluss und können weggelassen werden.
+        Federn und Dämpfer wirken parallel.
+
+        \begin{align*}
+            \omega_0 &= \sqrt{\frac{2 \cdot c}{m}} = \sqrt{\frac{2 \cdot 2000Nm^{-1}}{5kg}} = 28.28rads^{-1} \\
+            \delta &= \frac{2 \cdot d}{2 \cdot m} = \frac{2 \cdot 25Nsm^{-1}}{2 \cdot 5kg} = 5rads^{-1} \\
+            \omega_d &= \sqrt{\omega_0^2 - \delta^2} = \sqrt{(28.28rads^{-1})^2 - (5rads^{-1})^2} \\
+            &= 27.84rads^{-1}
+        \end{align*}
+
+    \end{minipage}
+    \hspace{.05\textwidth}
+    \begin{minipage}{.38\textwidth}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{beispiel_dämpfung.png}
+                \label{fig:bspdämpfung}
+            \end{subfigure}
+        \end{figure}
+    \end{minipage}
+
+    Die Amplitude $A$ und der Phasenwinkel $\phi$ ergeben sich aus den Anfangsbedingungen wie folgt:
+
+    \begin{align*}
+        A &= \sqrt{x_0^2 + (\frac{v_0 + \delta \cdot x_0}{\omega_d})^2} 
+        = \sqrt{(-0.05m)^2 + (\frac{1.25ms^{-1} 
+        - 5rads^{-1} \cdot 0.05m}{27.84rads^{-1}})^2} = 0.0616m \\
+        \phi &= \tan^{-1}(\frac{x_0 \cdot \omega_d}{v_0 + \delta \cdot x_0}) 
+        = \tan^{-1}(\frac{-0.05m \cdot 27.84rads^{-1}}{1.25ms^{-1} - 5rads^{-1} \cdot 0.05m}) = -0.948rad \\
+        x(t) &= 0.0616 \cdot e^{-5 \cdot t} \cdot \sin(27.84 \cdot t - 0.948)
+    \end{align*}
+
+\end{bspbox}
+
+\section{Wellen}
+
+Eine mechanische Welle ist die räumliche Ausbreitung einer Schwingung von Materie 
+(mechanische Schwingung).Im Gegensatz zu anderen Wellentypen benötigen mechanische Wellen damit 
+schwingfähige Medien (Gase, Fluide oder Festkörper), um sich ausbreiten zu können.
+
+Mechanische Wellen transportieren hierbei nicht die Teilchen selbst, 
+sondern wie jede andere Welle nur die Energie der anfänglichen Störung.
+Zu den Beispielen zählen \cite{noauthor_mechanische_2023}:
+
+\begin{minipage}{.38\textwidth}
+    \begin{itemize}
+        \item Wasserwellen
+        \item Schallwellen
+        \item seismische Wellen 
+        \item allgemein Vibrationen
+    \end{itemize}
+
+\end{minipage}
+\hspace{.05\textwidth}
+\begin{minipage}{.55\textwidth}
+    \begin{figure}[H]   
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{Espejo_(3207185886).jpg} %.6 stands for 0.6 x textwidth
+        \caption{Wasserwellen als Beispiel für mechanische Oberflächenwellen \cite{noauthor_mechanische_2023}}
+        \label{fig:wasserwellen}
+    \end{figure}
+\end{minipage}
+
+Man unterscheidet grundsätzlich zwischen zwei verschiedenen Wellenarten:
+
+\begin{enumerate}
+    \item Querwelle (Wandern einer Querstörung)
+    \item Längswelle (Wandern einer Längsstörung)
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{querwelle.png}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{längswelle.png}
+    \end{minipage}
+    \caption{Beispiel für eine Querwelle (links) und eine Längswelle (rechts) \cite{boge_physik_2008}}
+    \label{fig:quervslängs}
+\end{figure}
+
+\begin{minipage}{.48\textwidth}
+    Wird eine Störung in den Wellenträger ein-
+    gegeben, schwingen die Teilchen (Oszillatoren =
+    Schwinger) am Ort, reißen aber durch ihre Kopp-
+    lung die benachbarten Teilchen mit, sodass die
+    Störung über den Wellenträger wandert. Jedes
+    Teilchen gibt seine aufgenommene Energie fort-
+    laufend an seine Nachbarteilchen ab, d.h. die
+    Energie wird mit der fortschreitenden Störung
+    transportiert.
+
+\end{minipage}
+\hspace{.05\textwidth}
+\begin{minipage}{.45\textwidth}
+    \begin{figure}[H]   
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{wellen_erklärung_oszillatoren.png} %.6 stands for 0.6 x textwidth
+        \caption{Wandern der Störung \cite{boge_physik_2008}}
+        \label{fig:wandernDerStörung}
+    \end{figure}
+\end{minipage}
+
+Die Störung wandert, aber die Stoffteilchen
+schwingen am Ort
+Durch innere Reibung nimmt der Wellenträger
+selbst Energie auf (es wird Reibarbeit verrichtet).
+
+\subsection{Gleichung der harmonischen Welle}
+
+Eine harmonische Welle entsteht, wenn die
+einzelnen Schwinger (Oszillatoren) harmonische
+Schwingungen ausführen.
+Wellenlänge
+$\lambda$ ist der Abstand zweier benachbarter Oszillatoren 1 und 2, die in gleicher Phase
+schwingen, am zweckmässigsten gemessen als
+Abstand zweier Wellenberge oder -täler.
+
+Die Ausbreitungsgeschwindigkeit c der harmonischen Welle ist wie bei jeder 
+gleichförmigen Bewegung der Quotient aus Weg- und
+zugehörigem Zeitabschnitt.
+
+\begin{minipage}{.48\textwidth}
+    \begin{infobox}
+        Die Welle legt während der Schwingungsdauer
+        $T$ den Weg $\lambda$ zurück.
+    \end{infobox}
+
+    \begin{equbox}
+        \begin{equation}
+            c = \frac{\lambda}{T} = \lambda \cdot f
+        \end{equation}
+    \end{equbox}
+
+\end{minipage}
+\hspace{.05\textwidth}
+\begin{minipage}{.45\textwidth}
+    \begin{figure}[H]   
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{lambda.png} %.6 stands for 0.6 x textwidth
+        \caption{$\lambda$ visualisiert \cite{boge_physik_2008}}
+        \label{fig:lambda}
+    \end{figure}
+\end{minipage}
+
+Um die harmonische Welle beschreiben zu
+können, wird eine Gleichung entwickelt. Damit hat
+man die Möglichkeiten:
+
+\begin{itemize}
+    \item für einen bestimmten gegebenen Zeitpunkt
+    die Auslenkung $y$ eines jeden Wellenpunkts
+    zu berechnen und
+    \item für verschiedene Zeitpunkte die augenblickliche 
+    Auslenkung $y$ eines einzelnen Wellenpunkts zu berechnen.
+\end{itemize}
+
+Da jeder Wellenpunkt der harmonischen Welle
+eine harmonische Schwingung ausführt, wird von
+der schon bekannten Gleichung der harmonischen Schwingung ausgegangen.
+
+\begin{equation}
+    y = A \cdot \sin(2 \cdot \pi \cdot \frac{t}{T})
+\end{equation}
+
+Diese Schwingungsgleichung enthält noch keine Grösse, die von der Ausbreitungsgeschwindigkeit
+$c$ der Welle abhängig ist.
+
+Die Schwingungsgleichung in der Form
+$y = A \cdot \sin(2 \cdot \pi \cdot \frac{t}{T})$ enthält noch keine Grösse, die
+von der Ausbreitungsgeschwindigkeit $c$ der Welle
+abhängig ist.
+
+\begin{minipage}{.58\textwidth}
+    Beobachtet werden zwei Punkte 1 und 2 des
+    Wellenträgers, die den Abstand $\Delta x$ voneinander
+    haben. Wenn die Wellenbewegung Punkt 1 er-
+    reicht, ist Punkt 2 noch in Ruhe (a). Die Welle
+    läuft weiter und Punkt 1 schwingt zunächst nach
+    oben (b) und dann wieder nach unten, bis die
+    Welle auch den Punkt 2 erreicht hat (c). Punkt 2
+    beginnt also seine Schwingung um einen 
+    Zeitabschnitt $\Delta t$ später als Punkt 1. Auch während
+    der weiteren Wellenbewegung schwingt Punkt 2,
+    im gleichen Zeitabstand „hinter dem Punkt her“,
+    d.h. in einem beliebigen Zeitpunkt $t$ hat Punkt 2
+    dieselbe Auslenkung y, die Punkt 1 im Zeitpunkt
+    $t - \Delta t$ hatte.
+
+\end{minipage}
+\hspace{.05\textwidth}
+\begin{minipage}{.35\textwidth}
+    \begin{figure}[H]   
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{herleitung_welle.png} %.6 stands for 0.6 x textwidth
+        \caption{Herleitung \cite{boge_physik_2008}}
+        \label{fig:herleitungWelle}
+    \end{figure}
+\end{minipage}
+
+\begin{minipage}{.53\textwidth}
+
+    Wenn Punkt 1 im Zeitpunkt t die Auslenkung
+    $y = A \cdot \sin(2 \cdot \pi \cdot \frac{t}{T})$ hat, hat Punkt 2 erst die 
+    Auslenkung $y = A \cdot \sin(2 \cdot \pi \cdot \frac{(t - \Delta t)}{T})$ erreicht.
+    \vspace{8pt}
+    
+    Im Zeitabschnitt $\Delta t$ legt die Welle aber den
+    Weg $\Delta x$ mit der Ausbreitungsgeschwindigkeit $c$
+    zurück. Folglich ist $c = \frac{\Delta x}{\Delta t}$. Es ist aber auch
+    $c = \frac{\lambda}{T}$.
+    \vspace{8pt}
+    
+    Damit kann die Auslenkung $y$ des Punktes 2 (und
+    damit jedes beliebigen Punktes) des Wellenträgers im Zeitpunkt $t$ bestimmt werden.
+
+\end{minipage}
+\hspace{.05\textwidth}
+\begin{minipage}{.4\textwidth}
+    \begin{align}
+        c = \frac{\Delta x}{\Delta t} = \frac{\lambda}{T}; \frac{\Delta t}{T} = \frac{\Delta x}{\lambda} \\
+        y = A \cdot \sin(2 \cdot \pi \cdot \frac{(t - \Delta t)}{T}) \\
+        y = A \cdot \sin(2 \cdot \pi \cdot (\frac{t}{T} - \frac{\Delta t}{T}))
+    \end{align}
+
+    \begin{equbox}
+        \begin{equation}
+            y = A \cdot \sin(2 \cdot \pi \cdot (\frac{t}{T} - \frac{\Delta x}{\lambda}))
+        \end{equation}
+    \end{equbox}
+\end{minipage}
+

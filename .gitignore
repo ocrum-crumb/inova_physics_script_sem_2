@@ -13,3 +13,8 @@
 # Editor / OS clutter
 .vscode/
 .DS_Store
+
+# Python virtual environments
+.venv/
+venv/
+__pycache__/

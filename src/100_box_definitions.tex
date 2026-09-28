@@ -1,0 +1,48 @@
+% Define custom colors
+\definecolor{missionBlue}{RGB}{0, 102, 204}    % Professional blue
+\definecolor{readyGreen}{RGB}{0, 153, 51}     % Ready/mission-ready green
+\definecolor{alertRed}{RGB}{204, 0, 0}        % Alert/attention red
+\definecolor{accentOrange}{RGB}{255, 102, 0}  % Highlight orange
+
+\newcounter{equbox}
+\newenvironment{equbox}[1][missionBlue]
+  {\itshape
+    \refstepcounter{equbox}\noindent%
+   \begin{mdframed}[
+       linewidth=1.5pt,
+       roundcorner=5pt,
+       innerleftmargin=10pt,
+       innerrightmargin=10pt,
+       linecolor=#1,            % Border color
+       backgroundcolor=#1!10,   % Light background tint
+       skipabove=\medskipamount,
+       skipbelow=\medskipamount
+   ]}
+  {\end{mdframed}}
+
+\newcounter{infobox}
+\newenvironment{infobox}[1][readyGreen]
+  {\itshape
+    \refstepcounter{infobox}\noindent%
+   \begin{mdframed}[
+       linewidth=1.5pt,
+       roundcorner=5pt,
+       innerleftmargin=10pt,
+       innerrightmargin=10pt,
+       linecolor=#1,            % Border color
+       backgroundcolor=#1!10,   % Light background tint
+       skipabove=\medskipamount,
+       skipbelow=\medskipamount
+   ]}
+  {\end{mdframed}}
+
+\newcounter{bspbox}
+\newenvironment{bspbox}
+  {%
+    \refstepcounter{bspbox}% Step the counter
+    \medskip\noindent% Add vertical space and indent
+    \itshape% Italic text for the content
+    \textbf{Beispiel~\thebspbox:}\\% Title line
+    \ignorespaces% Ignore extra spaces after \begin{bspbox}
+  }
+  {\par}% Add vertical space after the environment

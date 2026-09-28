@@ -1,0 +1,141 @@
+\section{your first section}
+
+In this document, i want to give you a quick overview of the possibilities of latex (a limited overview).
+
+\subsection{citation with citavi}
+
+When you want to input a citation by using citavi 6, you can export from there the .bib file (has to be manually refreshed after every new citation). 
+
+Then you can citate like this: \cite{Young.2002}. There is a function in citavi, where you can copy that: \cite{Young.2002}. All the citations used get displayed at the end of the file (Quellenverzeichnis).
+
+\subsection{handling pictures}
+
+I use two main ways of inserting images: two pictures beside each other:
+
+\begin{minipage}{.5\textwidth}
+    \centering
+    \captionsetup{type=figure} % left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm, height=5cm]{black.pdf}
+    \captionof{figure}{left picture}
+    \label{fig:pictureLeft}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+    \centering
+    \captionsetup{type=figure} % left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm, height=5cm]{black.pdf}
+    \captionof{figure}{right picture}
+    \label{fig:pictureRight}
+\end{minipage}
+
+You can trim them from all 4 sides by changing the values after trim=....
+
+If you want to insert a reference to a picture, type this: \ref{fig:pictureLeft}.
+
+Just one picture, you can insert like that:
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.6\textwidth]{black.pdf} %.6 stands for 0.6 x textwidth
+    \caption{lonely picture}
+    \label{fig:lonelyPicture}
+\end{figure}
+
+\subsection{acronyms}
+
+When you want to use acronyms, list them in the listOfAbbreviations.tex file. As an example: in der \ac{hslu} sind Rüben. The first time you use the acronym, they get written out completely, the second time only the acronym gets used: In der \ac{hslu} hat es nicht nur Rübli sondern auch Eier.
+
+\subsection{more references}
+
+if you want to reference the appendix: \ref{app:firstAppendix}.
+
+\subsection{tables}
+
+first example for a table: (reference: \ref{tab:first table}).
+
+\begin{table}[H]
+    \centering
+    \caption{first table}
+    \label{tab:first table}
+    \begin{tabular}{|l|l|l|l|l|l|}
+        \hline
+        EN & DIN & 
+            \begin{tabular}{@{}c@{}}Härte \\ (HB), (HV)\end{tabular}
+        &
+            \begin{tabular}{@{}c@{}}Rp$_{02}$ \\ (Nmm$^{-2}$)\end{tabular}
+        &
+            \begin{tabular}{@{}c@{}}R$_{m}$ \\ (Nmm$^{-2})$\end{tabular}
+        &  
+            \begin{tabular}{@{}c@{}}E \\ (kNmm$^{-2}$)\end{tabular}
+        \\ \hline
+        1.4435 & X2CrNiMo18-14-3 & $\leq$ 215 & $\geq$ 200 & 500-700 & 200 \\ \hline
+        1.4310 & X10CrNi18-8 & 170-250 & $\geq$ 195 & 690-900 & 195 \\ \hline
+    \end{tabular}
+\end{table}
+
+Another type of table at table:
+
+\begin{table}[H]
+    \centering
+    \caption{second table}
+    \label{tab:second table}
+    \begin{tabular}{@{}lll@{}}
+    \toprule
+    Bereich                 & Beschreibung                                                                  & Abbildung                     \\ \midrule
+    \textbf{Netzsteuerung}  &                                                                               &                               \\
+                            &                                                                               &                               \\
+    Form                    & Viereckform                                                                   & \ref{fig:lonelyPicture}       \\
+                            &                                                                               &                               \\
+    Ansatzfunktion          & Lineare Ansatzfunktion                                                        & -                             \\
+                            &                                                                               &                               \\
+    Verfeinerung            & Lokale Verfeinerung (Löcher Zentrum)                                          & \ref{fig:pictureLeft}         \\
+                            &                                                                               &                               \\
+    Elementgrösse           & Global max.: 0.02 mm                                                          & -                            \\
+                            &                                                                               &                               \\
+    Konvergenzanalyse       & Maximale Abweichung 1\%                                                       & -                             \\ \midrule
+    \textbf{Statistik}      &                                                                               &                               \\
+                            &                                                                               &                               \\
+    Anzahl Elemente         & 6908                                                                          & \ref{fig:pictureRight}        \\
+                            &                                                                               &                               \\
+    Anzahl Knoten           & 7449                                                                          & -                             \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+
+\subsection{formulas}
+
+geg: d$_{innen}$ = 48.53 mm, F$_{max}$ = 1500 N\newline
+ges: p$_{max}$
+
+\begin{equation}
+    p_{max}=\dfrac{F_{max}}{A}=\dfrac{1500N}{\dfrac{\pi \cdot (49.53mm)^{2}}{4}}=0.7785Nmm^{2}=7.79bar
+    \label{eq:firstEquation}
+\end{equation}
+
+reference: \ref{eq:firstEquation}
+
+You can either write an equation between two \$ signs: $in text equation \pi$ or as shown above in equation \ref{eq:firstEquation}.
+
+For a new paragraph, let a line empty between text.
+
+\subsection{enumerations and itemize}
+
+Two different ways: first:
+
+\begin{enumerate}
+    \item two
+    \item three
+    \item five
+\end{enumerate}
+
+second way:
+
+\begin{itemize}
+    \item you
+    \item Arten
+    \item idk
+\end{itemize}
+
+\subsection{general information}
+
+All the pictures you want to use put in the -images- folder. New .tex files put in the -src- folder and PDFs and stuff for the appendix put in the folder anhang-.

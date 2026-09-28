@@ -1,0 +1,109 @@
+\documentclass[12pt]{report}
+\usepackage[ngerman]{babel}            % German language support
+\usepackage{amsmath, amssymb}          % Math support
+\usepackage{graphicx}                  % Graphics support
+\usepackage{lipsum}                    % For placeholder text (remove if not needed)
+\usepackage{fancyhdr}                  % Custom headers/footers
+\usepackage{datetime2}                 % Date formatting
+\usepackage{float}                     % Figure placement
+\usepackage{caption, subcaption}      % Captions for figures/tables
+\usepackage{parskip}                   % Paragraph spacing
+\usepackage{booktabs}                  % Professional tables
+\usepackage[a4paper, width=160mm, top=25mm, bottom=25mm]{geometry} % Page layout
+\usepackage{acronym}                   % Acronyms
+\usepackage{tabularx}                  % Fixed-width tables
+\usepackage[nottoc,notlot,notlof]{tocbibind} % Add bibliography to TOC
+\usepackage{enumitem}                  % Custom lists
+\usepackage{csquotes}                  % Quotation support
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[pdfa]{hyperref}                  % Hyperlinks (for PDF)
+\usepackage{tikz}
+
+% if hyperref does not work, use older version:
+% sudo tlmgr install hyperref --version 7.01.06
+
+% define environment for colored boxes
+\input{src/100_box_definitions.tex}
+
+% Graphics path
+\graphicspath{{images/}}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=false,                  % No colored links
+    linktoc=all,                      % Link TOC entries
+}
+
+% Header and footer
+\fancyhead[RO]{Marco Schnidrig}
+\fancyhead[LO]{Physik - Grundlagen für MT \& ST HF 2. Semester}
+% \fancyfoot[RO]{\thepage}
+\fancyfoot[LO]{Kapitel \thechapter}
+\renewcommand{\headrulewidth}{0.4pt}   % Header rule
+\renewcommand{\footrulewidth}{0.4pt}   % Footer rule
+\setlength{\headheight}{14.49998pt}    % Header height
+\setlength{\parindent}{0em}            % No paragraph indent
+
+% Document metadata
+\newcommand{\docAuthor}{Marco Schnidrig}
+\title{Physik - Grundlagen für MT \& ST HF 2. Semester\\ {\large Inovatech, Höhere Fachschule für Technik, Energie und Wirtschaft}}
+\author{Marco Schnidrig}
+\date{\today}
+
+\begin{document}
+	\maketitle 
+
+	\tableofcontents
+	\pagebreak
+
+	\pagestyle{fancy}				% use from now on pagestyles (headers and footers...)
+
+	%_____________________________________________________________________________________________________________________
+	
+	\input{src/01_Einleitung.tex}
+	\newpage
+
+	\input{src/02_Stoffe_Stoffeigenschaften.tex}
+	\newpage
+
+	\input{src/03_Statik.tex}
+	\newpage
+
+	\input{src/04_Kinematik.tex}
+	\newpage
+
+	\input{src/05_Dynamik.tex}
+	\newpage
+
+	\input{src/06_Schwingungen_Wellen.tex}
+	\newpage
+
+	%\input{src/07_Harmonische_Schwingungen.tex}
+	%\newpage
+
+	%\input{src/08_Strömungslehre.tex}
+	%\newpage
+
+	%\input{src/10_Festigkeit.tex}
+	%\newpage
+
+	%\input{src/11_Ermüdung_und_Rissfortschritt.tex}
+	%\newpage
+
+	%_____________________________________________________________________________________________________________________
+
+	\bibliographystyle{plainurl}
+	\bibliography{PhysikInovatechSkripts}
+
+	%_____________________________________________________________________________________________________________________
+	
+	\appendix 						% the following part will be appendix
+
+	\input{src/A_Übungen.tex}
+
+	\input{src/B_Lösungen.tex}
+
+	\input{src/C_tabellen.tex}
+
+\end{document}

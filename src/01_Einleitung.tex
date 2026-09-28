@@ -1,0 +1,204 @@
+\chapter{Einleitung}
+    
+Physik ist die Grundlage für das Verständnis technischer Systeme im Maschinenbau und in der Systemtechnik.
+
+Dieses Skript dient als zentrales Medium für den Physikunterricht im 2. Semester für Maschinen- 
+und Systemtechniker Stufe HF an der Inovatech. 
+Aufbauend auf den Grundkenntnissen der Mathematik vermittelt es die wichtigsten physikalischen Prinzipien, 
+die für die Entwicklung und Optimierung moderner Technologien essenziell sind. Von Statik über Dynamik bis hin zur 
+Strömungslehre werden die Inhalte möglichst anschaulich und praxisnah aufbereitet.
+
+Wo auch immer möglich werden Beispiele und Aufgaben an reellen physikalischen Systemen gezeigt.
+Diese sind meist stark vereinfacht und viele Einflüsse werden vernachlässigt, allerdings ist dies die 
+Kunst für alle Stufen der Physik. Die Realität ist beliebig komplex, 
+wer sie verständlich und isoliert vereinfachen kann hat einen grossen Vorteil.
+
+Nutzen Sie dieses Skript als Leitfaden, 
+um den Einstieg in die Physik zu meistern und Ihre technischen Fähigkeiten zu vertiefen. 
+Die behandelten Themen bieten eine solide Basis, die Sie je nach Interesse und Bedarf 
+selbstständig vertiefen können, Literatur ist für alle Themengebiete im Überschuss erhältlich. 
+Ziel des Unterrichts ist es, Ihnen die wichtigsten Werkzeuge 
+an die Hand zu geben, um sich in neue Themengebiete einzuarbeiten und diese erfolgreich anzuwenden.
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.3\textwidth]{physics_logo.jpg}
+    \label{fig:einleitungPhysicsLogo}
+\end{figure}
+
+\newpage
+
+\section{Organisation Unterricht}
+
+Der Unterricht wird über OpenOlat organisiert. Der Unterricht ist als einfache Version des 
+Flipped-Classrooms aufgebaut. Auf OpenOlat wird pro Unterrichtsblock ein Themenbereich oder Teile eines
+Themenbereichs zugewiesen. Dieses ist als Vorbereitung vor dem jeweiligen Unterrichtsblock vorzubereiten.
+
+In der ersten Lektion des Unterrichtblocks wird in einem kurzen Wrap-up der vorbereitete Stoff wiederholt.
+Anschliessend werden allfällige Fragen beantwortet, der Rest des Unterrichts wird für das Lösen von Aufgaben genutzt.
+
+Das Skript kann während des Semesters ändern, bitte achte deshalb darauf, dass du auf
+OpenOlat jeweils die aktuellste Version benutzt.
+
+\section{Zu dem Skript}
+
+Das Skript ist in die Themenbereiche aufgeteilt:
+
+\begin{itemize}
+    \item Stoffe und Stoffeigenschaften
+    \item Statik 1
+    \item Kinematik 1
+    \item Dynamik
+    \item Wellen 1
+    \item Bonus
+\end{itemize}
+
+Zu jedem Themenbereich sind die Übungen und Lösungen in den Anhängen \ref{app:A_Übungen} und \ref{app:B_Lösungen}.
+
+Das Skript basiert auf vielen verschiedenen Quellen, welche falls möglich referenziert werden.
+
+Das Skript wird von der Lehrperson geschrieben und auf dem aktuellsten Stand gehalten.
+Selbstverständlich sind Fehler vorhanden, falls Sie einen bemerken, wird ein Hinweis darauf
+dankend angenommen.
+
+\section{Grundlagen}
+
+Dieser Abschnitt behandelt einige Grundlagen, auf welche die Physik aufbaut.
+
+\subsection{Einheiten}
+
+Eine physikalische Größe macht qualitative und quantitative Aussagen über eine messbare Äusserung 
+eines physikalischen Zustands oder Vorgangs.
+Sie ist das Produkt aus einem Zahlenwert und einer Einheit \cite{boge_physik_2008}.
+
+\begin{infobox}
+    physikalische Grösse a = Zahlenwert \{a\} $\cdot$ Einheit [a]
+\end{infobox}
+
+Als Grundlage der großen Menge physikalischer
+Grössen wurden sieben \textbf{Basisgrössen} festgelegt. Die
+Auswahl war willkürlich, mit der einzigen Einschränkung: 
+Eine Basisgrösse darf nicht durch
+andere Basisgrössen definierbar sein.
+
+Für die Basisgrössen wurden international und gesetzlich 
+spezielle Einheiten festgelegt. Sie heissen
+\textbf{Basiseinheiten} und sind zugleich Einheiten des
+so genannten Internationalen Einheitensystems
+(SI-Einheiten). Aus ihnen werden die abgeleiteten
+Einheiten gebildet \cite{boge_physik_2008}:
+
+\begin{infobox}
+    \begin{minipage}{.3\textwidth}
+        \textbf{Basisgrösse} \\
+        Länge $l$ \\
+        Masse $m$ \\
+        Zeit $t$ \\
+        Thermod. Temperatur $T$ \\
+        Elektrische Stromstärke $I$ \\
+        Lichtstärke $I_v$ \\
+        Stoffmenge $n$
+    \end{minipage}
+    \hspace{.1\textwidth}
+    \begin{minipage}{.3\textwidth}
+        \textbf{Basiseinheit} \\
+        Meter ($m$) \\
+        Kilogramm ($kg$) \\
+        Sekunde ($s$) \\
+        Kelvin ($K$) \\
+        Ampere ($A$) \\
+        Candela ($cd$) \\
+        Mol ($mol$)
+    \end{minipage}
+\end{infobox}
+
+Werden in eine Definitionsgleichung die physikalischen Grössen 
+als Produkt von Zahlenwert und
+Einheit eingesetzt, entstehen \textbf{abgeleitete Einheiten}. 
+Sie sind stets Potenzprodukte von Basiseinheiten 
+oder lassen sich auf solche zurückführen \cite{boge_physik_2008}.
+
+\begin{bspbox}
+    Die Einheit der Geschwindigkeit ergibt sich aus den Einheiten, durch welche sie 
+    berechnet wird. Wenn eine Strecke $s = 1m$ in einer Zeit $t = 1s$ zurückgelegt wird:
+    \begin{equation}
+        v = \frac{1m}{1s} = 1 \frac{m}{s} = 1 m s^{-1}
+    \end{equation}
+\end{bspbox}
+
+Die Basiseinheiten m, kg, s, K, A, cd, mol und auch
+die abgeleiteten Einheiten mit selbstständigem
+Namen (z.B. der Meter $m$) dürfen durch Vorsatzzeichen 
+vervielfacht oder unterteilt werden:
+
+\begin{bspbox}
+    $1km$ ausgedrückt in $m$, $mm$ und $\mu m$:
+    $$
+    1km = 1000m = 10^{6}mm = 10^{9}\mu m
+    $$
+\end{bspbox}
+
+Die gängigsten Vorsatzzeichen:
+
+\begin{minipage}{.3\textwidth}
+    $10^{12}$ = Tera ($T$) \\
+    $10^9$ = Giga ($G$) \\
+    $10^6$ = Mega ($M$) \\
+    $10^3$ = Kilo ($k$) \\
+    $10^2$ = Hekto ($h$) \\
+    $10^1$ = Deka ($da$)
+\end{minipage}
+\hspace{.1\textwidth}
+\begin{minipage}{.3\textwidth}
+    $10^{-1}$ = Dezi ($d$) \\
+    $10^{-2}$ = Zenti ($c$) \\
+    $10^{-3}$ = Milli ($m$) \\
+    $10^{-6}$ = Mikro ($\mu$) \\
+    $10^{-9}$ = Nano ($n$)  
+\end{minipage}
+
+\subsection{Koordinatensysteme}
+
+Das \textbf{kartesische Koordinatensystem} ist das am häufigsten 
+verwendete Koordinatensystem. Es besteht aus drei senkrecht aufeinander 
+stehenden Achsen: \(x\), \(y\) und \(z\). Jeder Punkt \(P\) im Raum 
+wird durch seine Koordinaten \((x, y, z)\) beschrieben.
+
+\begin{center}
+    \begin{tikzpicture}[scale=2]
+        \draw[->] (0,0,0) -- (2,0,0) node[right]{$x$};
+        \draw[->] (0,0,0) -- (0,2,0) node[above]{$y$};
+        \draw[->] (0,0,0) -- (0,0,2) node[below left]{$z$};
+        \node[circle,fill,inner sep=1pt,label=below:{$P(x,y,z)$}] at (2,2,2) {};
+\end{tikzpicture}
+\end{center}
+
+Das Zylinderkoordinatensystem oder \textbf{Polarkoordinatensystem} ist 
+besonders nützlich für Probleme mit Zylindersymmetrie. 
+Ein Punkt \(P\) wird durch die Koordinaten \((\rho, \varphi, z)\) beschrieben, 
+wobei \(\rho\) der Abstand zur \(z\)-Achse, \(\varphi\) der Winkel 
+in der \(xy\)-Ebene und \(z\) die Höhe über der \(xy\)-Ebene ist.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % Axes
+    \draw[->] (0,0,0) -- (2,0,0) node[right]{$x$};
+    \draw[->] (0,0,0) -- (0,2,0) node[above]{$y$};
+    \draw[->] (0,0,0) -- (0,0,2) node[below left]{$z$};
+
+    % Define rho and phi
+    \pgfmathsetmacro{\rho}{2}
+    \pgfmathsetmacro{\phi}{45}
+
+    % Point P in cylindrical coordinates
+    \coordinate (P) at ({\rho*cos(\phi)}, {\rho*sin(\phi)}, 1.5);
+
+    % Draw projection and angle
+    \draw[dashed] (0,0,0) -- ({\rho*cos(\phi)}, {\rho*sin(\phi)}, 0) node[midway,below] {$\varrho$};
+    \draw (0.5,0,0) arc (0:\phi:0.5) node[midway,right] {$\varphi$};
+    \draw[dashed] ({\rho*cos(\phi)}, {\rho*sin(\phi)}, 0) -- (P);
+
+    % Point P
+    \node[circle,fill,inner sep=1pt,label=above:{$P(\varrho,\varphi,z)$}] at (P) {};
+\end{tikzpicture}
+\end{center}

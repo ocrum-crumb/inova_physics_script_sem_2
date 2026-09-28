@@ -1,0 +1,507 @@
+\chapter{Statik}
+
+In der Statik - als Teilgebiet der Mechanik - wird von ruhenden und unverformbaren 
+(starren) Körpern ausgegangen. Ziel der Statik ist die Annahme der Lasten an einem
+Bauteil und die Bestimmung von Lagerreaktionen.
+
+Diese Annahmen werden benötigt, um die Festigkeit in einem Bauteil zu bestimmen.
+Festigkeit ist nicht Teil dieses Kapitels.
+Abbildung \ref{fig:übersichtMechanikStatik} zeigt
+eine Einteilung der Teilgebiete in der Mechanik.
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.8\textwidth]{übersichtMechanikStatik.png} %.6 stands for 0.6 x textwidth
+    \caption{Einteilung Mechanik und Statik}
+    \label{fig:übersichtMechanikStatik}
+\end{figure}
+
+Die Berechnungen und Beispiele in diesem Kapitel werden hauptsächlich in der Ebene (2D)
+gezeigt, wobei die meisten Konzepte in den Raum übertragen werden können (3D).
+
+Viele Inhalte, Bilder und Aufgaben dieses Kapitels stammen aus dem Mechanik \&
+Festigkeit Skript von Prof. R. Bärtsch, unterrichtet an der HSLU T\&A in Luzern 
+\cite{bartsch_mechanik_2022}.
+
+\section{Kraft}
+Eine Kraft selbst ist nicht sichtbar, deren Wirkung kann jedoch 
+sichtbar sein. Sie kann beispielsweise eine Masse beschleunigen
+oder Deformationen verursachen. Die Kraft ist die zentrale Grösse
+in der Statik.
+
+3 Angaben sind zur Beschreibung einer Kraft notwendig:
+
+\begin{minipage}{.5\textwidth}
+    % Enumerate environment on the left
+    \begin{itemize}
+        \item Der Betrag
+        \item Die Wirkungslinie
+        \item Der Richtungssinn
+    \end{itemize}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+    % Image on the right
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{kraftvektor.png}
+    \captionof{figure}{Kraftvektor}
+    \label{fig:kraftvektor}
+\end{minipage}
+
+Die Kraft ist also eine vektorielle Grösse und wird mit einem Pfeil dargestellt. Die ebene
+Kraft $F$ kann in ihre Komponenten $F_x$ und $F_y$ zerlegt werden
+(Abbildung \ref{fig:kraftImKartesischen}).
+
+\begin{minipage}{.5\textwidth}
+    \begin{equbox}
+        \begin{equation}
+            \begin{split}
+                F_x = F \cdot \cos \alpha \\
+                F_y = F \cdot \sin \alpha \\
+                \tan \alpha = \frac{F_y}{F_x} \\
+                F = \sqrt{F_x^2 + F_y^2}
+            \end{split}
+            \label{eq:equationKraft}
+        \end{equation}
+    \end{equbox}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm, height=4cm]{kraftImKartesischen.png}
+    \captionof{figure}{Resultierende Kraft}
+    \label{fig:kraftImKartesischen}
+\end{minipage}
+
+Die Wirkung der Kraft $F$ mit Wirkungslinie in Richtung von $\alpha$ ist die gleiche wie diejenige
+der Kräfte $F_x$ und $F_y$. Man sagt, die beiden Kräftegruppen sind äquivalent.
+
+\subsection{Die resultierende Kraft}
+
+Zwei Kräfte, die an einem Punkt angreifen, können durch eine resultierende Kraft ersetzt werden. 
+Die Erweiterung auf mehrere Kräfte mit beliebigen Angriffspunkten führt auf die 
+Definition der Resultierenden.
+
+\begin{minipage}{.5\textwidth}
+    \begin{infobox}
+        Eine Kraft, die die gleiche Wirkung hat wie eine Reihe von Kräften, 
+        die sie ersetzt, nennt man die Resultierende.
+    \end{infobox}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=.7\textwidth]{resultierende Kraft.png}
+    \captionof{figure}{Ersatz von Kräften}
+    \label{fig:resultierende}
+\end{minipage}
+
+\section{Moment}
+
+Eine Kraft F im Abstand d von einer Achse bewirkt eine Drehung des Körpers, wobei die
+Wirkung proportional zur Kraft F und zum Abstand d ist.
+
+\begin{equbox}
+    \begin{equation}
+        M = F \cdot d, F \perp d
+    \end{equation}
+\end{equbox}
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{Das Moment einer Kraft.png} %.6 stands for 0.6 x textwidth
+    \caption{Das Moment einer Kraft}
+    \label{fig:dasMomentEinerKraft}
+\end{figure}
+
+Bei der Berechnung des Momentes einer Kraft bezüglich eines Punktes A in der Ebene kann
+entweder gemäss Definition mit dem senkrechten Abstand $d$ der Wirkungslinie zum Pol
+gerechnet werden. Alternativ - und vielfach einfacher - kann die Kraft zunächst in ihre
+Komponenten zerlegt und dann die Einzelmomente dieser beiden Kraftkomponenten
+berechnet und anschliessend summiert werden.
+
+\begin{infobox}
+    Das resultierende Moment mehrerer Kräfte ist gleich der Summe der Einzelmomente.
+\end{infobox}
+
+Da sich eine Kraft entlang ihrer Wirkungslinie verschieben lässt, ohne dass ihre Wirkung sich
+ändert, gibt es eine spezielle Lage der Kraft $F$, für die die Komponenten $F_x$ durch den Pol geht
+und damit kein Moment mehr verursacht. Alle drei Varianten in Abbildung 
+\ref{fig:zurBerechnungDesMomentsEinerKraft} ergeben das gleiche Ergebnis.
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{zurBerechnungDesMomentsEinerKraft.png} %.6 stands for 0.6 x textwidth
+    \caption{Zur Berechnung des Momentes einer Kraft}
+    \label{fig:zurBerechnungDesMomentsEinerKraft}
+\end{figure}
+
+\subsection{Das Kräftepaar}
+
+Das Kräftepaar hat die Wirkung eines Momentes, dessen Grösse F·d unabhängig von der
+Lage des Pols ist. Daraus ergibt sich folgende Erkenntnis:
+
+\begin{infobox}
+    Ein Kräftepaar (oder Moment) kann in der Statik beliebig verschoben werden, ohne dass sich
+    seine Wirkung ändert.
+\end{infobox}
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{verschiebenVonKräftepaaren.png} %.6 stands for 0.6 x textwidth
+    \caption{Verschieben von Kräftepaaren}
+    \label{fig:verschiebenVonKräftepaaren}
+\end{figure}
+
+\subsection{Schwerpunkt}
+
+Der Schwerpunkt befindet sich dort, wo man seinen Zeigefinger an einem Körper positionieren müsste, 
+um es im Gleichgewicht zu halten bzw. um diesen zu balancieren \cite{noauthor_schwerpunkt_nodate}.
+In der Statik ist man in erster Linie an der Lage des Schwerpunktes interessiert 
+($S$ in Abbildung \ref{fig:lageSchwerpunktAllgemein}).
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.5\textwidth]{schwerpunkt_allgemein.png} %.6 stands for 0.6 x textwidth
+    \caption{Lage des Schwerpunktes an einer allgemeinen Fläche \cite{noauthor_schwerpunkt_nodate}}
+    \label{fig:lageSchwerpunktAllgemein}
+\end{figure}
+
+Nachfolgend die allgemeine
+Formel für die Lage in $x$ und $y$. Selbstverständlich kann dieses Konzept auf einen
+Körper (3D) erweitert werden.
+
+\begin{equbox}
+    \begin{align}
+        x_s &= \frac{\sum A_i \cdot x_{Si}}{\sum A_i} \\
+        y_s &= \frac{\sum A_i \cdot y_{Si}}{\sum A_i}
+    \end{align}
+\end{equbox}
+
+Um den Schwerpunkt zu berechnen, kann in einem ersten Schritt eine Grundfläche definiert werden.
+Zu dieser werden anschliessend Unterflächen (gemäss obigen Formeln) addiert oder subtrahiert, 
+wie in Abbildung \ref{fig:schwerpunktberechung} gezeigt.
+
+$x_{Si}$ und $y_{Si}$ sind dabei die Positionen der Schwerpunkte der Unterflächen.
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.8\textwidth]{schwerpunkt_übersicht.png} %.6 stands for 0.6 x textwidth
+    \caption{Konzept zur Schwerpunktberechnung \cite{noauthor_schwerpunkt_nodate}}
+    \label{fig:schwerpunktberechung}
+\end{figure}
+
+Für komplexere Berechnungen kann eine Tabelle zur Hilfe verwendet werden.
+
+\begin{table}[h]
+\centering
+\caption{Vorlage Tabelle für Berechnungen}
+\label{tab:leere_tabelle}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$i$ & $A_i$ & $x_{Si}$ & $y_{Si}$ & $A_i \cdot x_{Si}$ & $A_i \cdot y_{Si}$ \\ \hline
+1 & & & & & \\ \hline
+2 & & & & & \\ \hline
+3 & & & & & \\ \hline
+$\sum$ & & - & - & & \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Gleichgewicht eines Systems}
+
+Die Berechnung der Resultierenden dient der Ermittlung von Kräften an einem Bauteil, das
+sich im Gleichgewicht befindet. Gleichgewicht bedeutet, dass sich alle angreifenden Kräfte in
+ihrer Wirkung aufheben, also die Resultierende verschwindet.
+
+Die Bestimmung der Resultierenden wird schrittweise für die folgenden Arten von Kräfte- systemen gelöst.
+
+\begin{itemize}
+    \item Zentrales Kräftesystem (gemeinsamer Angriffspunkt)
+    \item System mit parallelen Kräften (parallele Wirkungslinien)
+    \item Allgemeines Kräftesystem (beliebige Angriffspunkte und Wirkungslinien)
+\end{itemize}
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{die dre Arten von kräftesystemen.png} %.6 stands for 0.6 x textwidth
+    \caption{Die drei Arten von Kräftesystemen}
+    \label{fig:dieDreiArten}
+\end{figure}
+
+\subsection{Zentrales Kräftesystem}
+
+Das zentrale Kräftesystem repräsentiert ein Punkt, an dem beliebig viele Kräfte
+angreifen. Aus der Summe der Kräfte kann eine Resultierende Kraft berechnet werden,
+gezeigt in Abbildung \ref{fig:kräfteplan} und Formeln \ref{eq:komAddition} bis
+\ref{eq:RichtungDerResultierenden}.
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{kräfteplan.png} %.6 stands for 0.6 x textwidth
+    \caption{Resultierende Kraft im Kräfteplan}
+    \label{fig:kräfteplan}
+\end{figure}
+
+Anhand des Kräfteplans kann eine graphische Lösung ermittelt werden, er ist aber
+nicht notwendig für die rechnerische Lösung. Dazu genügt der Lageplan.
+
+\begin{equbox}
+    \begin{minipage}[t]{.25\textwidth}
+        Komponentenweise \newline Addition:
+        \begin{equation}
+            \begin{split}
+                &F_{res, x} = \sum F_x \\
+                &F_{res, y} = \sum F_y
+            \end{split}
+            \label{eq:komAddition}
+        \end{equation}
+    \end{minipage}%
+    \hspace{.05\textwidth}
+    \begin{minipage}[t]{.34\textwidth}
+            Der Betrag der Resultierenden:
+            \begin{equation}
+                F_{res} = \sqrt{F_{res, x}^2 + F_{res, y}^2}
+                \label{eq:betragDerResultierende}
+            \end{equation}
+    \end{minipage}
+    \hspace{.05\textwidth}
+    \begin{minipage}[t]{.25\textwidth}
+            Die Richtung der \newline Resultierenden:
+            \begin{equation}
+                \tan{\alpha} = \frac{F_{res, y}}{F_{res, x}}
+                \label{eq:RichtungDerResultierenden}
+            \end{equation}
+    \end{minipage}
+\end{equbox}
+
+\begin{bspbox}
+    \begin{minipage}{.66\textwidth}
+        3 Kräfte greifen an einem Haken an, gesucht ist die resultierende Kraft nach
+        Betrag und Richtung. \newline
+        $\displaystyle F_{res, x} = 6kN \cdot \cos{30^{\circ}} + 8kN \cdot \cos{60^{\circ}}
+        - 5kN \cdot \sin{20^{\circ}} = 7.49kN$ \newline
+        $\displaystyle F_{res, y} = 6kN \cdot \sin{30^{\circ}} + 8kN \cdot \sin{60^{\circ}}
+        + 5kN \cdot \cos{20^{\circ}} = 14.63kN$ \newline
+        $\displaystyle F_{res} = \sqrt{(7.49kN)^2 + (14.63kN)^2} = 16.4kN$ \newline
+        $\displaystyle \tan{\alpha} = \frac{14.63kN}{7.49kN} = 1.953 \to \alpha = 62.9^{\circ}$ 
+    \end{minipage}
+    \hspace{.04\textwidth}
+    \begin{minipage}{.28\textwidth}
+        \begin{figure}[H]    
+            \centering          %     left botm right top
+            \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{zentralesKräftesystemHakenBeispiel.png} %.6 stands for 0.6 x textwidth
+            \label{fig:bspHaken}
+        \end{figure}
+    \end{minipage}
+\end{bspbox}
+
+Zu beachten ist die Mehrdeutigkeit der $arctan$ Funktion. Zur Kontrolle der Richtung der
+Resultierenden kann eine grobmassstäbliche Skizze des Kräfteplans dienen.
+
+\subsection{Parallele Kräfte}
+
+Die Resultierende von parallelen Kräften muss die gleiche Wirkung wie die Einzelkräfte
+haben. Daraus ergeben sich folgende Bedingungen:
+
+\begin{infobox}
+    \begin{itemize}
+        \item Der Betrag der Resultierenden Kraft ist gleich der Summe der Einzelkräfte.
+        \item Das Moment der Resultierenden ist gleich der Summe der Momente aus den Einzelkräften.
+        \begin{itemize}
+            \item Diese Bedingung muss für jeden beliebigen Pol erfüllt sein.
+        \end{itemize}
+    \end{itemize}
+\end{infobox}
+
+\begin{minipage}{.5\textwidth}
+    \begin{equbox}
+        \begin{equation}
+            \begin{split}
+                F_{res} = \sum F_i \\
+                x_s = \frac{\sum F_i \cdot x_i}{\sum F_i}
+            \end{split}
+            \label{eq:resParallel}
+        \end{equation}
+    \end{equbox}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm, height=5cm]{resultierendeParalleleKräfte.png}
+    \captionof{figure}{Resultierende parall. Kräfte}
+    \label{fig:resParallel}
+\end{minipage}
+
+\begin{bspbox}
+    \begin{minipage}{.58\textwidth}
+        Der Betrag der Resultierenden ist: \newline
+        $\displaystyle F_{res} = F_1 + F_2 + F_3$ \newline
+        Das Moment bezüglich des Pols in A ist: \newline
+        $\displaystyle F_{res} \cdot x_s = F_1 \cdot x_1 + F_2 \cdot x_2 + F_3 \cdot x_3$ \newline
+        $\displaystyle x_s = \frac{F_1 \cdot x_1 + F_2 \cdot x_2 + F_3 \cdot x_3}{F_{res}}$
+    \end{minipage}
+    \begin{minipage}{.4\textwidth}
+        \begin{figure}[H]   
+            \centering          %     left botm right top
+            \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{beispielParalleleKräfte.png} %.6 stands for 0.6 x textwidth
+            \label{fig:bspParallel}
+        \end{figure}
+    \end{minipage}
+\end{bspbox}
+
+\subsection{Allgemeines Kräftesystem}
+
+Bei allgemeinen Kräftesystemen sind die Kräfte weder parallel noch haben sie einen
+gemeinsamen Schnittpunkt. Die Resultierende muss auch hier die gleiche Wirkung wie die
+Einzelkräfte haben.
+
+\begin{minipage}{.49\textwidth}
+    \begin{infobox}
+        Ein allgemeines ebenes Kräftesystem kann im beliebigen Punkt der Ebene durch eine
+        resultierende Kraft und ein Moment ersetzt werden. Das Moment ist dabei nicht an diesen
+        Punkt gebunden, sondern kann in der Ebene frei verschoben werden.
+    \end{infobox}
+\end{minipage}%
+\hspace{.01\textwidth}
+\begin{minipage}{.49\textwidth}
+    \begin{equbox}
+        Formal sind also die 3 Bedingungen zu erfüllen:
+        \begin{equation}
+            \begin{split}
+                &F_{res, x} = \sum F_x \\
+                &F_{res, y} = \sum F_y \\
+                &M_{res} = \sum M
+            \end{split}
+        \end{equation}
+    \end{equbox}
+\end{minipage}
+
+
+\begin{bspbox}
+    \begin{minipage}{.58\textwidth}
+        Auf das Bauteil wirken die vier Kräfte:
+        $F_1 = 100N, F_2 = 50N, F_3 = 200N$ und $F_4 = 150N$.
+        Zu bestimmen ist die resultierende Kraft nach Lage, Grösse
+        und Richtung.
+        Die resultierende Kraft ist:
+        \begin{equation*}
+            \begin{split}
+                &F_{res, x} = F_1 + F_3 \cdot \cos{45^{\circ}} = 241.4N \\
+                &\displaystyle F_{res, y} = -F_2 - F_3 \cdot \sin{45^{\circ}} - F_4 = -341.4N \\
+                &\displaystyle F_{res} = \sqrt{(241.1N)^2 + (-341.4N)^2} = 418.1N
+            \end{split}
+        \end{equation*}
+        Das resultierende Moment bez. Punkt A ist:
+        \begin{equation*}
+            \begin{split}
+                &M_A = -F_2 \cdot 0.1m - F_3 \cdot \sin{45^{\circ}} \cdot 0.2m \\
+                &- F_4 \cdot 0.2m = -63.3Nm
+            \end{split}
+        \end{equation*}
+        Die Richtung der resultierenden Kraft is:
+        \begin{equation*}
+            \begin{split}
+                &\tan{\alpha} = \frac{-341.4N}{241.4N} = -1.414 \\
+                &\rightarrow \alpha = -54.7^{\circ}
+            \end{split}
+        \end{equation*}
+        Um die Lage der resultierenden Kraft zu bestimmen,
+        wird die Resultierende so lange nach rechts
+        verschoben, bis das Moment der resultierenden Kraft
+        um A gleich gross wie $M_A$ wird, d.h. $F_{res, y} \cdot x = M_A$.
+        Die Komponente $F_{res, x}$ ergibt kein Moment bez. A.
+        \begin{equation*}
+            x = \frac{|M_A|}{|F_{res, y}|} = \frac{|-63.3Nm|}{|-341.4N|} = 0.1854m
+        \end{equation*}
+        Analog könnte man die Resultierende auch nach oben
+        verschieben und den y-Abstand berechnen.
+    \end{minipage}
+    \begin{minipage}{.4\textwidth}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{beispielAllgKräftesys01.png}
+                \label{fig:beispielAllgKräftesys01}
+            \end{subfigure}
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{beispielAllgKräftesys02.png}
+                \label{fig:beispielAllgKräftesys02}
+            \end{subfigure}
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{beispielAllgKräftesys03.png}
+                \label{fig:beispielAllgKräftesys03}
+            \end{subfigure}
+        \end{figure}
+    \end{minipage}
+\end{bspbox}
+
+\section{Lagerung und Freimachen}
+
+Fast alle Bauteile sind in ihrer Umgebung gelagert, z.B. an einem Fundament festgeschraubt
+oder in einem Gelenk drehbar gelagert. Ausnahmen sind schwimmende oder fliegende
+Bauteile. Die Lagerung hat die Aufgabe, das Bauteil zu positionieren, Kräfte zu übertragen
+und Bewegungsfreiheitsgrade einzuschränken.
+Die Aufgabe der Statik ist es, diese Lagerkräfte zu berechnen. Es muss deshalb zunächst
+Klarheit bestehen, wo und wie diese wirken. Die Lager und Verbindungselemente übertragen
+je nach konstruktiver Ausführung verschiedene Belastungen. Um zu erkennen, welche Kräfte
+die Lagerstellen auf ein Bauteil ausüben, wird dieses aus seiner Verbindung gelöst, d.h.
+freigemacht.
+
+Das Freimachen geschieht durch einen (gedachten) Schnitt, welcher das Bauteil von den
+Lagern trennt. An den geschnittenen Stellen werden Kräfte bzw. Momente eingeführt, die
+sog. Lagerreaktionen. Sowohl die Lagerreaktionen als auch die wirkenden Lasten sind
+äussere Kräfte, da sie von aussen auf das Bauteil einwirken. Das freigemachte Bauteil ist in
+Ruhe, d.h. alle an ihm angreifenden Kräfte und Momente sind im Gleichgewicht. Dies erlaubt
+es, die Lagerreaktionen zu berechnen \cite{bartsch_statik_2022}.
+
+\subsection{Das Freimachen}
+
+Der dargestellte Generator (Abbildung \ref{fig:freimachengenerator}) ist in A in einem Gelenk gelagert und wird in B von einem Stab
+gehalten. Die Belastung besteht aus den Kräften F und G und dem Moment M. Der gedachte
+Schnitt trennt die beiden Lagerelemente. Würde man den Stab durchtrennen, so müsste man
+den Generator mit einer Kraft B halten, welche genau so gross ist, wie die Stabkraft vor dem
+Trennen. Anstelle des Gelenkes A wird eine Kraft A in unbekannter Richtung und Grösse
+eingeführt \cite{bartsch_statik_2022}.
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.7\textwidth]{freimachen_generator.png} %.6 stands for 0.6 x textwidth
+    \caption{Freimachen eines belasteten Bauteils \cite{bartsch_statik_2022}}
+    \label{fig:freimachengenerator}
+\end{figure}
+
+Das Freimachen beinhaltet:
+
+\begin{itemize}
+    \item Skizzieren des Bauteils (vereinfacht), herausgelöst aus allen Verbindungen
+    \item Übertragen aller äusseren Kräfte / Momente, die auf das Bauteil wirken
+    \item Einführen und Bezeichnen der Kräfte / Momente an den geschnittenen Stellen
+\end{itemize}
+
+\subsection{Lagerungsarten}
+
+Bild \ref{fig:lagerungsartenUndLagerreaktionenEbene} zeigt häufig vorkommende Lagerungsarten mit den zugehörigen Freiheitsgraden
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{lagerungsarten.png} %.6 stands for 0.6 x textwidth
+    \caption{Lagerungsarten und Lagerreaktionen in der Ebene \cite{bartsch_statik_2022}}
+    \label{fig:lagerungsartenUndLagerreaktionenEbene}
+\end{figure}
+
+\begin{bspbox}
+    Am freigemachten Bauteil ist der Wirkungssinn der unbekannten Lagerkräfte grundsätzlich
+    belanglos und damit frei wählbar. Den richtigen Wirkungssinn ergibt das Vorzeichen der
+    Berechnung. Ein positives Vorzeichen bedeutet, Kraft bzw. Moment wirken wie
+    angenommen; ein negatives Vorzeichen, Kraft bzw. Moment wirken umgekehrt wie
+    angenommen. Wenn es die Anschauung erlaubt, ist es sinnvoll, die Lagerreaktionen in der
+    „richtigen“ Richtung einzuzeichnen.
+
+    \begin{figure}[H]    
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{beispiel_freimachen.png} %.6 stands for 0.6 x textwidth
+        \label{fig:bspfreimachen}
+    \end{figure}
+\end{bspbox}
+
+

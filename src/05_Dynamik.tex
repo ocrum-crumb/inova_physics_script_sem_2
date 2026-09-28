@@ -1,0 +1,498 @@
+\chapter{Dynamik}
+
+Viele aus dem Maschinenbau bekannte Bauteile, wie etwa Kurbelwelle, Kolben oder Pleuel
+bewegen sich beschleunigt und sind dynamisch beansprucht. Untersucht man diese
+Bewegungen im Zusammenhang mit den vorhandenen Kräften, so spricht man von Dynamik.
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.4\textwidth]{einteilungMechanik.png} %.6 stands for 0.6 x textwidth
+    \caption{Einteilung Mechanik \cite{bartsch_dynamik_2023}}
+    \label{fig:einteilungMechanik_other}
+\end{figure}
+
+In der Statik und Festigkeitslehre werden im Wesentlichen Systeme betrachtet, die in Ruhe
+sind; die Zeit als eine Grundgrösse der Mechanik kommt also nicht vor. In der Dynamik spielt
+die Zeit hingegen eine entscheidende Rolle.
+
+Die 3 Grundgesetze von Newton lauten:
+
+\begin{enumerate}
+    \item Jeder Körper verharrt in seinem Zustand der gleichförmigen, geradlinigen Bewegung, 
+    wenn er nicht durch einwirkende Kräfte gezwungen wird, diesen Zustand zu ändern
+    \item Die Änderung der Bewegungsgrösse ist proportional zur einwirkenden Kraft
+    \item Die Wirkung zweier Körper aufeinander ist stets gleich und von entgegengesetzter 
+    Richtung (actio = reactio)
+\end{enumerate}
+
+Insbesondere das 2. Gesetz ist für die Dynamik zentral; mathematisch formuliert (rechts mit Produktregel):
+
+\begin{minipage}{.45\textwidth}
+    \begin{equation}
+        \overrightarrow{F} = \frac{d(m \cdot \overrightarrow{v})}{dt}
+    \end{equation}
+\end{minipage}
+\hspace{.1\textwidth}
+\begin{minipage}{.45\textwidth}
+    \begin{equation}
+        \overrightarrow{F} = m \cdot \frac{d \overrightarrow{v}}{dt} + \frac{dm}{dt} \cdot \overrightarrow{v}
+    \end{equation}
+\end{minipage}
+
+Für den starren Körper ist der zweite Term gleich Null und es bleibt die unter dem Namen
+Newton'sches Gesetz bekannte Formel \cite{bartsch_dynamik_2023}:
+
+\begin{equbox}
+    \begin{equation}
+        \overrightarrow{F} = m \cdot \overrightarrow{a}
+    \end{equation}
+\end{equbox}
+
+Auf Basis der obigen Grundgesetze sind folgende Begriffe und Formeln aus der Physik
+bekannt. Analog zu einer Translation mit der Grösse Masse m existieren die entsprechenden
+Beziehungen für eine Rotation um eine feste Achse mit der Grösse Massenträgheitsmoment $J$.
+
+\begin{table}[h]
+    \centering
+    \caption{Analogie dynamische Grössen Translation und Rotation \cite{bartsch_dynamik_2023}}
+    \label{tab:anal_dyn_grössen}
+    \begin{figure}[H]    
+        \centering          %     left botm right top
+        \includegraphics[width=\textwidth]{analogie_dynamische_grössen.png} %.6 stands for 0.6 x textwidth
+    \end{figure}
+\end{table}
+
+\section{Newton oder D'alembert}
+\label{sec:newtondalembert}
+
+Mit Hilfe des Grundgesetzes können entweder bei gegebenen Kräften die Bewegung eines
+Bauteils oder bei gegebener Bewegung die auftretenden Kräfte bestimmt werden. Dabei sind
+nach Newton mit $\overrightarrow{F}$ die Summe aller äusseren Kräfte, also die resultierende Kraft gemeint \cite{bartsch_dynamik_2023}.
+
+\begin{bspbox}
+    \newline
+    \begin{minipage}{.55\textwidth}
+        
+        \textbf{Newton:} Ein Paket der Masse $m = 50 kg$ gleitet auf einer Rutsche
+        nach unten. Die Gleitreibungszahl beträgt $\mu = 0,4$.
+        Wie gross ist die Endgeschwindigkeit bei einer
+        Anfangsgeschwindigkeit von $v_0 = 2 ms^{-1}$? \newline
+
+        Kräftegleichgewicht in y-Richtung:
+
+        \begin{align*}
+            \sum F_y &= N - m \cdot g \cdot \cos(30^\circ) = 0 \\
+            \rightarrow N &= m \cdot g \cdot \cos(30^\circ)
+        \end{align*}
+
+        Die resultierende Kraft in x-Richtung beträgt:
+
+        \begin{equation*}
+            F_{res,x} = m \cdot g \cdot \sin(30^\circ) - R
+        \end{equation*}
+
+    \end{minipage}
+    \hspace{.05\textwidth}
+    \begin{minipage}{.38\textwidth}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{newtonbsp_1.png}
+                \label{fig:newtonbsp1}
+            \end{subfigure}
+        \end{figure}
+    \end{minipage}
+
+    \begin{minipage}{.55\textwidth}
+
+        Mit dem Reibungsgesetz $R = \mu \cdot N$ erhalten wir:
+
+        \begin{align*}
+            F_{res, x} &= m \cdot g \cdot (\sin(30^\circ) - \mu \cdot \cos(30^\circ)) = m \cdot a \\
+            \rightarrow a &= g \cdot (\sin(30^\circ) - 0.4 \cdot \cos(30^\circ)) = 1.51ms^{-2}
+        \end{align*}
+
+        Mit der kinematischen Beziehung:
+
+        \begin{equation*}
+            v^2 = 2 \cdot a \cdot (x - x_0) + v_0^2
+        \end{equation*}
+
+        Ergibt sich die Endgeschwindigkeit:
+
+        \begin{align*}
+            v &= \sqrt{2 \cdot a \cdot (x - x_0) + v_0^2} \\
+            &= \sqrt{2 \cdot 1.51ms^{-2} \cdot 2m + (2ms^{-1})^2} = 3.17ms^{-1}
+        \end{align*}
+
+    \end{minipage}
+    \hspace{.05\textwidth}
+    \begin{minipage}{.38\textwidth}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{newtonbsp_2.png}
+                \label{fig:newtonbsp2}
+            \end{subfigure}
+        \end{figure}
+    \end{minipage}
+    \newline
+\end{bspbox}
+
+Im Gegensatz zu Newton fasst D'alembert den Ausdruck $m \cdot \overrightarrow{a}$ als Trägheitskraft auf.
+Damit lässt sich ein dynamisches Problem auf ein statisches Gleichgewicht reduzieren \cite{bartsch_dynamik_2023}.
+
+\begin{bspbox}
+    \begin{minipage}{.55\textwidth}
+
+        \textbf{D'alembert:} In der Skizze des freigemachten Bauteils wird die
+        Trägheitskraft $m \cdot a$ entgegengesetzt der Bewegung
+        eingeführt. \newline
+
+        Das Gleichgewicht für beide Richtungen lautet:
+
+        \begin{align*}
+            \sum F_y &= N - m \cdot g \cdot \cos(30^\circ) = 0 \\
+            \sum F_x &= m \cdot g \cdot \sin(30^\circ) - R - m \cdot a = 0
+        \end{align*}
+
+    \end{minipage}
+    \hspace{.05\textwidth}
+    \begin{minipage}{.38\textwidth}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{bspdalembert.png}
+                \label{fig:dalembertbsp}
+            \end{subfigure}
+        \end{figure}
+    \end{minipage}
+\end{bspbox}
+
+Mit dem Vorgehen nach D'alembert führen wir ein dynamisches Problem formal auf ein
+statisches Problem zurück. Dies mag ein Grund dafür sein, dass es in der Praxis oft bevorzugt
+angewendet wird.
+
+\section{Energieerhaltung}
+
+Mit dem aus der Physik bekannten Begriff der Arbeit kann man auf Basis
+des dynamischen Grundgesetzes die kinetische Energie ableiten. Neben der kinetischen
+Energie existieren noch die potentielle- und die elastische Energieformen in der Mechanik \cite{bartsch_dynamik_2023}.
+
+Die kinetische Energie eines translatorisch bewegten starren 
+Körpers lässt sich schreiben (rechts für rotierende Körper, Massenträgheitsmomente
+für Grundkörper sind im Anhang \ref{app:C_tabellen}, Tabelle \ref{tab:Massenträgheitsmomente} 
+zu finden):
+
+\begin{equbox}
+    \begin{minipage}{.44\textwidth}
+        \begin{equation}
+            E_{kin} = \frac{1}{2} \cdot m \cdot v^2
+        \end{equation}
+    \end{minipage}
+    \hspace{.1\textwidth}
+    \begin{minipage}{.44\textwidth}
+        \begin{equation}
+            E_{kin} = \frac{1}{2} \cdot J \cdot \omega^2
+        \end{equation}
+    \end{minipage}
+\end{equbox}
+
+Die potentielle Energie bezüglich eines festgelegten Niveaus berechnet sich wie folgt:
+
+\begin{equbox}
+    \begin{equation}
+        E_{pot} = m \cdot g \cdot h
+    \end{equation}
+\end{equbox}
+
+Federn können elastische Energie speichern, sie beträgt für lineare Kennlinien:
+
+\begin{minipage}{.54\textwidth}
+    \begin{equbox}
+        \begin{equation}
+            E_{feder} = \frac{1}{2} \cdot c \cdot (x_2^2 - x_1^2)
+        \end{equation}
+    \end{equbox}
+    \vspace{10pt}
+    Elastische Bauteile können ebenfalls als Federn
+    aufgefasst werden und sind analog zu behandeln. So
+    können Zugstäbe, Biegebalken und Torsionsstäbe
+    elastische Energie speichern \cite{bartsch_dynamik_2023}.
+\end{minipage}
+\hspace{.1\textwidth}
+\begin{minipage}{.34\textwidth}
+    \begin{figure}[H]   
+        \centering          %     left botm right top
+        \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=\textwidth]{Efeder.png} %.6 stands for 0.6 x textwidth
+    \end{figure}
+\end{minipage}
+
+Bei Bewegungsvorgängen können diese drei Energieformen ineinander überführt werden.
+Unter Berücksichtigung der Verluste bleibt dabei die Summe der Energien für zwei 
+Zustände (1 und 2) konstant:
+
+\begin{equbox}
+    \begin{equation}
+        \sum E_1 - W_R = \sum E_2
+    \end{equation}
+\end{equbox}
+
+Mit $\sum E_i$ sind die drei Energieformen kinetische, potentielle und elastische Energie gemeint. $W_R$ sind die 
+Verluste. Wird einem System Energie zugeführt, z.B.
+mittels Antrieb, so ist die zugeführte Arbeit auf der linken Seite zu addieren \cite{bartsch_dynamik_2023}.
+
+\begin{bspbox}
+    \begin{minipage}{.55\textwidth}
+        Das Beispiel aus Kapitel \ref{sec:newtondalembert} wird alternativ mit
+        Hilfe des Energieerhaltungssatzes gelöst.
+        Zunächst wird ein Referenzniveau für die
+        potentielle Energie festgelegt (Epot = 0).
+        Die Verluste infolge Reibung betragen bei
+        konstanter Reibkraft über dem Weg ∆𝑥 = 2m:
+
+        \begin{equation*}
+            W_R = R \cdot \Delta x = \mu \cdot m \cdot g \cdot \cos(30^\circ) \cdot \Delta x
+        \end{equation*}
+
+    \end{minipage}
+    \hspace{.05\textwidth}
+    \begin{minipage}{.38\textwidth}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{energieerhaltungbsp.png}
+                \label{fig:newtonbsp1}
+            \end{subfigure}
+        \end{figure}
+    \end{minipage}
+
+    Der Energieerhaltungssatz als Bilanz zwischen zwei Zuständen „oben“ und „unten“ lautet:
+
+    \begin{equation*}
+        \frac{1}{2} \cdot m \cdot v_0^2 + m \cdot g \cdot h - W_R 
+        = \frac{1}{2} \cdot m \cdot v^2 \rightarrow v 
+        = \sqrt{v_0^2 + 2 \cdot g \cdot (h - \mu \cdot \cos(30^\circ) \cdot \Delta x)} = 3.17ms^{-1}
+    \end{equation*}
+
+\end{bspbox}
+
+\section{Impuls- und Drehimpulserhaltung}
+
+Die von Newton eingeführte Bewegungsgrösse $m \cdot \overrightarrow{v}$ wird Impuls $\overrightarrow{p}$ 
+genannt. 
+
+\subsection{Impulssatz}
+
+Wir gehen aus vom dynamischen Grundgesetz für konstante Massen und 
+integrieren über die Zeit. Damit erhalten wir den Impulssatz in integraler Form:
+
+\begin{equbox}
+    \begin{equation}
+        m \cdot \overrightarrow{v_1} + \int \overrightarrow{F} dt = m \cdot \overrightarrow{v_2}
+    \end{equation}
+\end{equbox}
+
+Das Integral wird Kraftstoss genannt, die Änderung des Impulses ist gleich dem Kraftstoss.
+Greifen mehrere Kräfte an, so ist für $\overrightarrow{F}$ die resultierende Kraft einzusetzen.
+
+Der Impulssatz kann für einen Massenpunkt wie folgt gedeutet werden. Der Einfachheit
+halber betrachten wir eine geradlinige Bewegung und lassen deshalb die Vektorpfeile weg.
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.7\textwidth]{impulssatz.png} %.6 stands for 0.6 x textwidth
+    \caption{Impulssatz \cite{bartsch_dynamik_2023}}
+    \label{fig:impulssatz}
+\end{figure}
+
+Eine Masse bewegt sich mit der Geschwindigkeit $v_1$ nach rechts. Es greift über eine (kurze)
+Zeit eine Kraft $F$ an, die nicht konstant sein muss. Durch diesen Kraftstoss $\int F dt$ verändert
+sich die Geschwindigkeit und beträgt nachher $v_2$.
+
+Die Stärke des Impulssatzes liegt in der Anwendung für schnelle Vorgänge wie Stösse oder
+Kollisionen, bei welchen die Stosszeit Bruchteile von Sekunden beträgt.
+Er gilt aber auch für „langsame“ Vorgänge; dies wird anhand des einfachen Beispiels gezeigt.
+
+\begin{bspbox}
+    \begin{minipage}{.55\textwidth}
+        Das Beispiel aus Kapitel \ref{sec:newtondalembert} wird alternativ mit
+        Hilfe des Impulssatzes gelöst.
+
+        In diesem Beispiel ist die resultierende Kraft über der Zeit des
+        Kraftstosses konstant und beträgt:
+
+        \begin{equation*}
+            F_{res} = m \cdot g \cdot (\sin(30^\circ) - \mu \cdot \cos(30^\circ))
+        \end{equation*}
+
+        Das Integral $\int F dt = F_{res} \cdot \Delta t$ und der Impulssatz:
+
+    \end{minipage}
+    \hspace{.05\textwidth}
+    \begin{minipage}{.38\textwidth}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{newtonbsp_1.png}
+                \label{fig:newtonbsp}
+            \end{subfigure}
+        \end{figure}
+    \end{minipage}
+
+    \begin{align*}
+        m \cdot v_0 + F_{res} \cdot \Delta t &= m \cdot v \\
+        m \cdot v_0 + m \cdot g \cdot (\sin(30^\circ) - \mu \cdot \cos(30^\circ)) \cdot \Delta t &= m \cdot v \\
+        g \cdot (\sin(30^\circ) - \mu \cdot \cos(30^\circ)) = \frac{v - v_0}{\Delta t} = a
+    \end{align*}
+
+    Mit der kinematischen Beziehung $v^2 = 2 \cdot a \cdot (s - s_0) + v_0^2$ ergibt sich die Endgeschwindigkeit.
+\end{bspbox}
+
+Der Impulssatz lässt sich auch für Systeme aus mehreren Massen oder für starre Körper
+anwenden. Der Massenmittelpunkt oder Schwerpunkt bewegt sich so, als wäre die gesamte
+Masse in diesem Punkt vereinigt und als würden alle Kräfte in ihm angreifen.
+
+\subsection{Impulserhaltungssatz}
+
+Verschwindet bei einem abgeschlossenen System die resultierende Kraft, so wird der
+Impulssatz mit $\overrightarrow{F} = 0$ zum Impulserhaltungssatz.
+
+\begin{equbox}
+    \begin{equation}
+        \sum (m_i \cdot \overrightarrow{v_i})_1 = \sum (m_i \cdot \overrightarrow{v_i})_2
+    \end{equation}
+\end{equbox}
+
+Dieser Sachverhalt gilt für ein System von mehreren Massenpunkten oder für einen starren
+Körper. Das bedeutet, dass der Massenmittelpunkt von mehreren Massenpunkten oder der
+Schwerpunkt eines starren Körpers sich gleichförmig geradlinig bewegt oder in Ruhe bleibt
+(Spezialfall), wenn keine äusseren Kräfte angreifen.
+
+Der Impulserhaltungssatz gilt ohne Einschränkungen, d.h. auch bei Vorgängen mit
+„Energieverlusten“ wie Reibung oder plastischer Deformation. Stossvorgänge, die in der
+Praxis immer mit Verlusten verlaufen, sind deshalb nur über den Impulserhaltungssatz
+erfassbar.
+
+\subsection{Drehimpuls}
+
+In Analogie zum Impuls $m \cdot \overrightarrow{v}$ bei Translationen existiert für Rotationen starrer Körper die
+Bewegungsgrösse $J \cdot \overrightarrow{\omega}$, genannt Drehimpuls $\overrightarrow{L}$.
+
+\begin{equation}
+    \overrightarrow{L} = J \cdot \overrightarrow{\omega}
+\end{equation}
+
+Zunächst soll der Spezialfall einer Rotation um eine Symmetrieachse betrachtet werden; dann
+sind $\overrightarrow{L}$ und $\overrightarrow{\omega}$ gleichgerichtet. Da der Schwerpunkt auf der Symmetrieachse liegt, wird das
+Massenträgheitsmoment bezüglich dem Schwerpunkt $J_S$ verwendet.
+In Analogie zum Impulssatz existiert für Rotationen der Drehimpulssatz:
+
+\begin{equation}
+    \overrightarrow{M} = J_S \cdot \frac{d \overrightarrow{\omega}}{dt}
+\end{equation}
+
+Besser bekannt unter dem Namen \textbf{Drallsatz} in folgender Schreibweise:
+
+\begin{equbox}
+    \begin{equation}
+        \overrightarrow{M} = J_S \cdot \overrightarrow{\alpha}
+    \end{equation}
+\end{equbox}
+
+In integraler Form:
+
+\begin{equbox}
+    \begin{equation}
+        J_S \cdot \overrightarrow{\omega}_1 + \int \overrightarrow{M}_S dt = J_S \cdot \overrightarrow{\omega}_2
+    \end{equation}
+\end{equbox}
+
+Die Änderung des Drehimpulses ist gleich dem Zeitintegral des Momentes $\int M dt$.
+Der Drehimpulssatz kann wie folgt gedeutet werden. Die Vektoren $\overrightarrow{M}$ und $\overrightarrow{\omega}$ sind parallel und
+wir lassen deshalb die Vektorpfeile weg.
+
+\begin{figure}[H]    
+    \centering          %     left botm right top
+    \includegraphics[clip, trim=0cm 0cm 0cm 0cm,width=.7\textwidth]{drehimpulssatz.png} %.6 stands for 0.6 x textwidth
+    \caption{Drehimpulssatz \cite{bartsch_dynamik_2023}}
+    \label{fig:drehimpulssatz}
+\end{figure}
+
+Ein Körper dreht sich mit der Winkelgeschwindigkeit 𝜔1. Es greift über eine (kurze) Zeit ein
+Moment $M$ an, das nicht konstant sein muss. Durch den Drall $\int M dt$ verändert sich die
+Winkelgeschwindigkeit und beträgt nachher $\omega_2$.
+
+Der Drehimpulssatz oder Drallsatz wird meist in der Form $\overrightarrow{M} = J \cdot \overrightarrow{\alpha}$ verwendet, wobei die
+Grösse $J \cdot \overrightarrow{\alpha}$ als „Trägheitskraft“ nach D'alembert eingeführt wird.
+
+Liegt die Drehachse schief zur Symmetrieachse des Bauteils, so zeigt der Vektor des
+Momentes $\overrightarrow{M}$ nicht mehr in Richtung der Drehachse $\overrightarrow{\omega}$. Dies zeigt sich beispielsweise bei
+dynamisch nicht ausgewuchteten Rotoren
+
+\subsection{Drehimpulserhaltungssatz}
+
+Der Drehimpulserhaltungssatz ist wie der Impulserhaltungssatz universell gültig, also auch
+bei Vorgängen mit Reibung und plastischer Deformation, bei denen mechanische Energien in
+Wärme umgewandelt werden. Er ist deshalb zur Erfassung von Stössen unabdingbar.
+
+\begin{equbox}
+    \begin{equation}
+        \sum (J_i \cdot \overrightarrow{\omega}_i)_1 = \sum (J_i \cdot \overrightarrow{\omega}_i)_2
+    \end{equation}
+\end{equbox}
+
+Eine andere Anwendung stellt das Kuppeln von rotierenden Wellen dar. Liegen bei einem
+Getriebe mehrere Wellen parallel, so wirken beim Kuppeln Umfangskräfte und Lagerkräfte,
+die als äusseres Moment aufgefasst werden können. Somit gilt der Drehimpulserhaltungssatz
+nur bei fluchtenden Wellen. Man kann allerdings das Problem bei Getrieben umgehen, indem
+man die Massenträgheitsmomente auf die zwei fluchtenden Wellen reduziert.
+
+\begin{bspbox}
+    Ein Getriebe besteht aus vier Wellen, mit den Übersetzungen $i_{AB} = 3$ und $i_{CD} = 4$. Zwischen den Wellen
+    B und C ist eine Kupplung, die zunächst offen ist. Die Wellen B und C haben den gleichen Drehsinn,
+    aber unterschiedliche Drehzahlen. Wie gross ist die Drehzahl der Welle BC nach dem Kuppeln und
+    wie gross ist die in der Kupplung entstehende Wärme?
+
+    Die auf die Achse B bzw. C reduzierten Trägheitsmomente:
+
+    \begin{minipage}{.55\textwidth}
+        \begin{align*}
+            J_{redB} &= J_B + J_A \cdot (\frac{n_A}{n_B})^2 \\
+            &= 10kgm^2 + 270kgm^2 \cdot (\frac{1s^{-1}}{3s^{-1}}) = 40kgm^2 \\
+            J_{redC} &= J_C + J_D \cdot (\frac{n_D}{n_C})^2 \\
+            &= 15kgm^2 + 1kgm^2 \cdot 4 = 31kgm^2
+        \end{align*}
+
+        Für das reduzierte System gilt der Drehimpulserhaltungssatz:
+
+    \end{minipage}
+    \hspace{.05\textwidth}
+    \begin{minipage}{.38\textwidth}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{\textwidth}
+                \includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=\textwidth]{bsp_gearbox.png}
+                \label{fig:bspgearbox}
+            \end{subfigure}
+        \end{figure}
+    \end{minipage}
+
+    \begin{align*}
+        J_{\text{red B}} \cdot \omega_B + J_{\text{red C}} \cdot \omega_C &= (J_{\text{red B}} + J_{\text{red C}}) \cdot \omega \\
+        n &= \frac{J_{\text{red B}} \cdot n_B + J_{\text{red C}} \cdot n_C}{J_{\text{red B}} + J_{\text{red C}}} = 13{,}31\,s^{-1}
+    \end{align*}
+
+    Energieerhaltung mit entstehender Wärme W beim Kuppeln:
+
+    \begin{align*}
+        \frac{1}{2} J_{\text{red B}} \cdot \omega_B^2 + \frac{1}{2} J_{\text{red C}} \cdot \omega_C^2 &= \frac{1}{2} (J_{\text{red B}} + J_{\text{red C}}) \cdot \omega^2 + W \\
+    \end{align*}
+
+    mit $\omega = 2\pi \cdot n$:
+    
+    \begin{align*}
+        W &= \frac{1}{2} \cdot (2\pi)^2 \cdot \left( J_{\text{red B}} \cdot n_B^2 + J_{\text{red C}} \cdot n_C^2 - (J_{\text{red B}} + J_{\text{red C}}) \cdot n^2 \right) = 3{,}1\,\text{kJ}
+    \end{align*}
+
+\end{bspbox}
